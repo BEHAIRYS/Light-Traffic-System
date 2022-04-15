@@ -1,0 +1,71 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\DIO.c" -xcl_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.xcl" -macro_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\DIO.c" -D ewarm -D PART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.tmp"
+  rspfile_name = D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.xcl.rsp
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\main.c" -xcl_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.xcl" -macro_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\main.c" -D ewarm -D PART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.tmp"
+  rspfile_name = D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.xcl.rsp
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\SystickTimer.c" -xcl_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.xcl" -macro_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\SystickTimer.c" -D ewarm -D PART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.tmp"
+  rspfile_name = D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.xcl.rsp
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Timer.c" -xcl_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.xcl" -macro_file "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Timer.c" -D ewarm -D PART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.tmp"
+  rspfile_name = D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.xcl.rsp
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.pbi : INDEXER D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.xcl |  $
+D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\DIO.c
+  flags = "-out=D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.pbi" -f "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.xcl"
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.pbi : INDEXER D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.xcl |  $
+D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\main.c
+  flags = "-out=D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.pbi" -f "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.xcl"
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.pbi : INDEXER D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.xcl |  $
+D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\SystickTimer.c
+  flags = "-out=D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.pbi" -f "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.xcl"
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.pbi : INDEXER D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.xcl |  $
+D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Timer.c
+  flags = "-out=D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.pbi" -f "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.xcl"
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\lab$ 6A.pbw : MAKEBROWSE D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\lab$ 6A.pbd
+  flags = "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\lab$ 6A.pbd" -output "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\lab$ 6A.pbw"
+
+build D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\lab$ 6A.pbd : PDBLINK D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.pbi |  $
+D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.pbi $
+D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.pbi $
+D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.pbi
+  flags = -M "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\lab$ 6A.pbd" "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\DIO.pbi" "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\main.pbi" "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\SystickTimer.pbi" "D$:\MAC\Downloads\sem$ 7\Embedded\Project\project\Debug\BrowseInfo\Timer.pbi"
+
